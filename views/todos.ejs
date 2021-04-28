@@ -1,0 +1,55 @@
+<!-- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Todos</h1>
+    <ul>
+    <!--
+      forEach called on todo arrays
+      for each element in the array, we create a list item with two spans
+
+      On the list item, we are storing the id of the MongoDB todo item
+
+      First span has class of either 'completed' or 'not' and we fill in todo text using the todo text from the todo object
+
+      Second span is the delete button
+    -->
+    <% todos.forEach( el => { %>
+            <li class='todoItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class='del'> Delete </span>
+            </li>
+    <% }) %>    
+    </ul>
+
+    <!-- 
+      displayes user's user name 
+      displays number of items the user has left to complete
+    -->
+    <h2><%= user.displayName %> has <%= left %> things left to do.</h2>
+
+    <!-- 
+      form that tells us where to go and what action we are taking, ie the route and POST 
+      method. Input is where we submit the text
+      for our todo, and when submit is clicked, 
+      the todo is created.
+    -->
+    <form action="/todos/createTodo" method='POST'>
+        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="submit">
+    </form>
+    
+  <!--routes to function to logout -->
+    <a href="../auth/logout">Logout</a>
+    
+  <!-- links to main.js -->
+    <script src="js/main.js"></script>
+</body>
+</html>

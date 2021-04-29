@@ -1,13 +1,13 @@
-//when color is added, this changes the elements color to red
-h1{
-    color: red;
+/* when color is added, this changes the elements color to red */
+h1 {
+  color: red;
 }
-//makes completed items gray and with strikethrough
-.completed{
-    text-decoration: line-through;
-    color: gray;
+/* makes completed items gray and with strikethrough */
+.completed {
+  text-decoration: line-through;
+  color: gray;
 }
-//if not completed gives it an underline
-.not{
-    text-decoration: underline;
+/* if not completed gives it an underline */
+.not {
+  text-decoration: underline;
 }

@@ -4,17 +4,23 @@ const mongoose = require('mongoose')
 // saying the names of the object fields
 //define what the fields contain and what is required when making an object
 const PostSchema = new mongoose.Schema({
-  todo: {
+  title: {
     type: String,
     required: true,
+    trim: true
   },
-  completed: {
-    type: Boolean,
-    required: true,
-  },
-  microsoftId: {
+  body: {
     type: String,
     required: true
+  },
+  status: {
+    type: String,
+    default: 'public',
+    enum: ['public', 'private']
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }
 })
 

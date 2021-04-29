@@ -5,11 +5,19 @@ const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema({
   microsoftId: {
     type: String,
-    required: true,
+    required: true
   },
   displayName: {
     type: String,
-    required: true,
+    required: true
+  },
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
   }
 })
 

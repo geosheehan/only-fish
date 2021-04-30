@@ -48,61 +48,14 @@ module.exports = {
             console.error(err);
 
         }
-    },
-
-
-
-
-
-
-
-
-
-    //promise 
-    createTodo: async (req, res) => {
-        try {
-            //creates new todo object using Todo schema
-            await Todo.create({ todo: req.body.todoItem, completed: false, microsoftId: req.user.microsoftId })
-            console.error('Todo has been added!')
-            // reloads todo page
-            res.redirect('/todos')
-        } catch (err) {
-            console.error(err)
-        }
-    },
-    //updates todoItem with completed: true
-    markComplete: async (req, res) => {
-        try {
-            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }, {
-                completed: true
-            })
-            console.error('Marked Complete')
-            res.json('Marked Complete')
-        } catch (err) {
-            console.error(err)
-        }
-    },
-    //updates todoItem with completed: false
-    markIncomplete: async (req, res) => {
-        try {
-            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile }, {
-                completed: false
-            })
-            console.error('Marked Incomplete')
-            res.json('Marked Incomplete')
-        } catch (err) {
-            console.error(err)
-        }
-    },
-    //method that deleted todoItem
-    deleteTodo: async (req, res) => {
-        console.log(req.body.todoIdFromJSFile)
-        try {
-            await Todo.findOneAndDelete({ _id: req.body.todoIdFromJSFile })
-            console.log('Deleted Todo')
-            res.json('Deleted It')
-        } catch (err) {
-            console.log(err)
-        }
     }
 }
+    
+    
+
+
+
+
+
+
+

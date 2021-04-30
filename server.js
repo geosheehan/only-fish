@@ -22,7 +22,7 @@ require('./config/passport')(passport)
 
 // connect to DB
 // runs method in config/database
-connectDB()
+// connectDB()
 
 //sets view engine to ejs, which parses html
 app.set('view engine', 'ejs')
@@ -66,5 +66,5 @@ app.use('/post', postRoutes);
 
 //connects to PORT, lets us know server is running 
 app.listen(process.env.PORT, () => {
-  console.log('Server is running, you better catch it!')
+  console.log(`${process.env.PORT}`)
 })

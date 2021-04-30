@@ -5,9 +5,13 @@ const postController = require('../controllers/post')
 // requires that the user is logged in/authorized 
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
-// @desc    Create a post
+// @desc    Display page to create a post
 // @route   GET /post
 router.get('/', /*ensureAuth,*/ postController.addPost);
+
+// @desc    Create a post
+// @route   GET /post
+router.post('/', /*ensureAuth,*/ postController.createPost);
 
 // @desc    View a specific post
 // @route   GET /post/:id

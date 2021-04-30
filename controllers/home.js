@@ -13,5 +13,12 @@ module.exports = {
       } catch (err) {
           console.error(err)
       }
+  },
+  getLake: async (req, res) => {
+    try {
+      res.render('lake.ejs', { id: req.params.id })
+    } catch (err) {
+      console.error(err)
+    }
   }
 }

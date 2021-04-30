@@ -1,2 +1,0 @@
-DB_STRING=mongodb+srv://fishyuser:xCPPhw7ChoKMHE3A@cluster0.ekcrd.mongodb.net/flannelmouth-todo?retryWrites=true&w=majority
-PORT=2121

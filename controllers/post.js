@@ -1,8 +1,19 @@
-const Post = require('../models/Post')
+const mongoose = require('mongoose');
+const Post = require('../models/Post');
 
 module.exports = {
     addPost: (req, res) => {
         res.render('posts/create.ejs');
+    },
+    createPost: async (req, res) => {
+        try {
+            // TODO: Do this but with a real MongoDB ObjectId for a user
+            // req.body.user = '123'; // req.user.id;
+            const postId = await Post.create(req.body);
+            res.redirect(`/post/${postId}`);
+        } catch (err) {
+            console.error(err);
+        }
     },
     viewPost: async (req, res) => {
         try {

@@ -5,11 +5,39 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Only Fish Create Post Page</title>
+      <title>Only Fish Edit Post Page</title>
       <link rel="stylesheet" href="css/style.css">
    </head>
    <body>
-      <h1>Only Fish Editing Post <%= id %> </h1>
+      <h1>Only Fish Edit Post</h1>
+      <form action="/post/<%= id %>" method="POST">
+         <!-- Method override to PUT -->
+         <input type="hidden" name="_method" value="PUT">
+
+         <!-- Title -->
+         <label for="title">Title:</label>
+         <input type="text" id="title" name="title" value="<%= post.title %>">
+
+         <!-- Body -->
+         <label for="body">Body:</label>
+         <textarea name="body" id="body" cols="30" rows="10"><%= post.body %></textarea>
+
+         <!-- Status -->
+         <select name="status" id="status">
+            <!-- Select appropriate option -->
+            <%const options = ['public', 'private'];%>
+            <%for (let option of options) {%>
+               <%const selected = post.status === option ? 'selected': '';%>
+               <%const optionCap = option.charAt().toUpperCase() + option.slice(1);%>
+               <option value="<%=option%>" <%=selected%>><%=optionCap%></option>
+            <%}%>
+         </select>
+         <label for="status">Status</label>
+
+         <!-- Buttons -->
+         <input type="submit" value="Submit">
+         <a href="/post/<%= id %>">Cancel</a> <!-- Go back to post -->
+      </form>
 
    </body>
 </html>

@@ -8,7 +8,11 @@ const authController = require('../controllers/auth')
 // get request to the root 
 // runs getIndex method with is within the homeController
 router.get('/', homeController.getIndex)
+<<<<<<< HEAD
 // router.get('/lake', )
+=======
+router.get('/lake/:id', homeController.getLake)
+>>>>>>> 55034f77cf45de5d5d9fd9cf6c39880b93cb0646
 router.get('/pond/:id', /* ensureAuth, */ homeController.getPond)
 router.get('/signup', authController.getSignup)
 //router.post('/signup', authController.postSignup)

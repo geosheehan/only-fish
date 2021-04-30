@@ -10,17 +10,36 @@
   </head>
   <body>
     <h1>Only Fish: Viewing Post <%= id %></h1>
-    <form action="/post/<%= id %>" method="POST">
-      <input type="hidden" name="_method" value="PUT">
+    <h2><%= post.title %></h2>
+    <!-- Add formatted content -->
+    <%post.body.split('\n').forEach(p => {%>
+      <p><%=p%></p>
+    <%})%>
+
+    <!-- Link to author -->
+    <a href="/pond/<%= post.user %>"><%= post.userName %></a>
+
+    <!-- Edit post
+      TODO: Only show this form if the viewing user is the author
+    -->
+    <form action="/post/edit/<%= id %>" method="GET">
       <button>Edit</button>
     </form>
+
+    <!-- Delete post
+      TODO: Only show this form if the viewing user can delete this post
+      i.e. Post author or moderator
+    -->
     <form action="/post/<%= id %>" method="POST">
       <input type="hidden" name="_method" value="DELETE">
       <button>Delete</button>
     </form>
+
+    <!-- Like post -->
     <form action="/post/<%= id %>/like" method="POST">
       <input type="hidden" name="_method" value="PUT">
       <button>Like!</button>
     </form>
+    <!-- TODO: Show number of likes on the post -->
   </body>
 </html>

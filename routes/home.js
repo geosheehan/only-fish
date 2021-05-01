@@ -7,8 +7,9 @@ const homeController = require('../controllers/home')
 // get request to the root 
 // runs getIndex method with is within the homeController
 router.get('/', homeController.getIndex)
-router.get('/lake', )
+router.get('/lake', homeController.getLake)
 router.get('/pond/:id', /* ensureAuth, */ homeController.getPond)
+router.post('/lake', homeController.postLake)
 
 // exporting the router variable so anyone using this module can use the router that we've created
 module.exports = router

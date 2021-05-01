@@ -22,7 +22,7 @@ require('./config/passport')(passport)
 
 // connect to DB
 // runs method in config/database
-// connectDB()
+connectDB()
 
 //sets view engine to ejs, which parses html
 app.set('view engine', 'ejs')

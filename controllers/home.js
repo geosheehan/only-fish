@@ -4,7 +4,7 @@ const Post = require('../models/Post')
 module.exports = {
     getIndex: (req,res)=>{
       // telling response to renders index ejs
-        res.render('index.ejs')
+        res.render('login.ejs')
     },
     getPond: async (req, res) => {
       try {
@@ -13,5 +13,14 @@ module.exports = {
       } catch (err) {
           console.error(err)
       }
+  },
+  getLake: async (req, res) => {
+    try {
+      // return user profile
+      //render login
+    }
+    catch (err) {
+      console.error(err)
+    }
   }
 }

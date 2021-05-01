@@ -66,5 +66,5 @@ app.use('/post', postRoutes);
 
 //connects to PORT, lets us know server is running 
 app.listen(process.env.PORT, () => {
-  console.log(`${process.env.PORT}`)
+  console.log(`Running server on port ${process.env.PORT}`)
 })

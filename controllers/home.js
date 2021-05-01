@@ -16,10 +16,15 @@ module.exports = {
   },
   getLake: async (req, res) => {
     try {
+<<<<<<< HEAD
       // return user profile
       //render login
     }
     catch (err) {
+=======
+      res.render('lake.ejs', { id: req.params.id })
+    } catch (err) {
+>>>>>>> c102a5f5cc704a5cd525a81b43d567af7c38cebd
       console.error(err)
     }
   }

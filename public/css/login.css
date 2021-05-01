@@ -82,3 +82,13 @@ body {
 .box input[type='submit']:hover {
   background-color: #1cb1f5;
 }
+
+small {
+  color: #fff;
+  margin-top: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: grey;
+}

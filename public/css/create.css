@@ -203,4 +203,5 @@ body{
 .row:nth-child(2):hover i.fa-comment{
   opacity: 1;
   pointer-events: auto;
+  
 }

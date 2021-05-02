@@ -11,9 +11,17 @@
 <body>
 	<div class="box">
 		<h2>OnlyFish SignUp</h2>
-		<form action="/login", method="POST">
+		<form action="/signup", method="POST">
       <div class="inputBox">
-        <input type="text" class="form-control" id="userName" name="userName">
+        <input type="text" class="form-control" id="firstName" name="firstName">
+        <label for="firstName" class="form-label">First Name</label>
+      </div>
+      <div class="inputBox">
+        <input type="text" class="form-control" id="lastName" name="lastName" required>
+        <label for="lastName" class="form-label">Last Name</label>
+      </div>
+      <div class="inputBox">
+        <input type="text" class="form-control" id="userName" name="userName" required>
         <label for="userName" class="form-label">User Name</label>
       </div>
 			<div class="inputBox">
@@ -23,17 +31,18 @@
       <div class="inputBox">
         <input type="password" name="password" id="password" 
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
         <label for="password" class="form label">Password</label>
       </div>
       <div class="inputBox">
-        <input type="password" name="password" id="confrimPassword" 
+        <input type="password" name="confrimPassword" id="confrimPassword" 
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
-        <label for="confirmPassword" class="form label">Confrim Password</label>
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+        <label for="confrimPassword" class="form label">Password</label>
       </div>
       <input type="submit" name="sign-in" value="Sign Up" class="sign-in-btn">
     </form>
+    <small>Back to <a href="/login">Login</a>!</small>
   </div>
     <script src="js/main.js"></script>
   </body>

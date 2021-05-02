@@ -5,7 +5,7 @@ const User = require("../models/User");
 module.exports = {
     getLogin : (req, res) => {
         if (req.user) {
-        return res.redirect("/profile");
+        return res.redirect("/login");
     }
     res.render("login", {
         title: "Login",
@@ -13,11 +13,46 @@ module.exports = {
 },
     getSignup : (req, res) => {
         if (req.user) {
-        return res.redirect("/pond");
+        return res.redirect("/signup");
         }
         res.render("signup", {
         title: "Create Account",
         });
+    },
+    postSignup : (req, res, next) => {
+      const user = new User({
+        userName: req.body.userName,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+      });
+    
+      User.findOne(
+        { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
+        (err, existingUser) => {
+          if (err) {
+            return next(err);
+          }
+          if (existingUser) {
+            req.flash("errors", {
+              msg: "Account with that email address or username already exists.",
+            });
+            return res.redirect("../signup");
+          }
+          user.save((err) => {
+            if (err) {
+              return next(err);
+            }
+            req.logIn(user, (err) => {
+              if (err) {
+                return next(err);
+              }
+              res.redirect("/lake");
+            });
+          });
+        }
+      );
     },
     postLogin : (req, res, next) => {
         const validationErrors = [];
@@ -28,7 +63,7 @@ module.exports = {
       
         if (validationErrors.length) {
           req.flash("errors", validationErrors);
-          return res.redirect("/lake");
+          return res.redirect("/login");
         }
         req.body.email = validator.normalizeEmail(req.body.email, {
           gmail_remove_dots: false,
@@ -47,7 +82,7 @@ module.exports = {
               return next(err);
             }
             req.flash("success", { msg: "Success! You are logged in." });
-            res.redirect(req.session.returnTo || "/profile");
+            res.redirect(req.session.returnTo || "/lake");
           });
         })(req, res, next);
       },

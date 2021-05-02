@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 // creates mongoose schema for users
 // requires micorsoftID and displayname, both strings
 const UserSchema = new mongoose.Schema({
-  microsoftId: {
+  email: {
     type: String,
     required: true
   },

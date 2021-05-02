@@ -11,8 +11,6 @@ module.exports = {
         title: "Login",
     });
 },
-
-
     getSignup : (req, res) => {
         if (req.user) {
         return res.redirect("/pond");
@@ -21,7 +19,6 @@ module.exports = {
         title: "Create Account",
         });
     },
-
     postLogin : (req, res, next) => {
         const validationErrors = [];
         if (!validator.isEmail(req.body.email))
@@ -31,7 +28,7 @@ module.exports = {
       
         if (validationErrors.length) {
           req.flash("errors", validationErrors);
-          return res.redirect("/login");
+          return res.redirect("/lake");
         }
         req.body.email = validator.normalizeEmail(req.body.email, {
           gmail_remove_dots: false,

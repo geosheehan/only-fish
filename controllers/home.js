@@ -1,3 +1,4 @@
+const User = require('../models/User')
 const Post = require('../models/Post')
 
 // exporting getIndex
@@ -8,8 +9,11 @@ module.exports = {
     },
     getPond: async (req, res) => {
       try {
-          // const posts =  await Post.find({ user: req.params.id })
-          res.render('pond.ejs', { id: req.params.id })
+          const user =  await User.findOne({ userName: req.params.username })
+          if (null === user) return res.render('../views/errors/404');
+
+          const posts = await Post.find({ user: user._id, status: 'public' })
+          res.render('pond.ejs', { user, posts })
       } catch (err) {
           console.error(err)
       }

@@ -20,7 +20,8 @@ module.exports = {
   },
   getLake: async (req, res) => {
     try {
-      res.render('lake.ejs', { id: req.params.id })
+      const publicPost = await Post.find({ status : "public" })
+      res.render('lake.ejs', { posts: publicPost })
     } catch (err) {
       console.error(err)
     }

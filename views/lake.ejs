@@ -6,80 +6,17 @@
     <div class="wrapper">
       <h1>The Lake</h1>
       <div class="grid">
-        <div class="grid-item">
-          <figure>
-            <!--space holder for image-->
-            <p>The user can put whatever they want to say here.</p>
-            <span>User Title</span>
-          </figure>
-        </div>
-        <div class="grid-item">
-          <figure>
-            <!--space holder for image-->
-            <p>The user can put whatever they want to say here.</p>
-            <span>User Title</span>
-          </figure>
-        </div>
-        <div class="grid-item">
-          <figure>
-            <!--space holder for image-->
-            <p>The user can put whatever they want to say here.</p>
-            <span>User Title</span>
-          </figure>
-        </div>
-        <div class="grid-item">
-          <figure>
-            <!--space holder for image-->
-            <p>The user can put whatever they want to say here.</p>
-            <span>User Title</span>
-          </figure>
-        </div>
-        <div class="grid-item">
-          <figure>
-            <!--<div id="sidebar"-->
-
-            <!--space holder for image-->
-            <p>The user can put whatever they want to say here.</p>
-            <span>User Title</span>
-          </figure>
-        </div>
-        <div class="grid-item">
-          <figure>
-            <!--space holder for image-->
-            <p>The user can put whatever they want to say here.</p>
-            <span>User Title</span>
-          </figure>
-        </div>
-        <div class="grid-item">
-          <figure>
-            <!--<div id="sidebar"-->
-
-            <!--space holder for image-->
-            <p>The user can put whatever they want to say here.</p>
-            <span>User Title</span>
-          </figure>
-        </div>
-        <div class="grid-item">
-          <figure>
-            <!--space holder for image-->
-            <p>The user can put whatever they want to say here.</p>
-            <span>User Title</span>
-          </figure>
-        </div>
-        <div class="grid-item">
-          <figure>
-            <!--space holder for image-->
-            <p>The user can put whatever they want to say here.</p>
-            <span>User Title</span>
-          </figure>
-        </div>
-        <div class="grid-item">
-          <figure>
-            <!--space holder for image-->
-            <p>The user can put whatever they want to say here.</p>
-            <span>User Title</span>
-          </figure>
-        </div>
+        <% for(var i=0; i<posts.length; i++) {%>
+          <div class="grid-item">
+            <a href="/post/<%= posts[i]._id%>" >
+            <figure>
+              <!--space holder for image-->
+              <p><%= posts[i]["body"] %></p>
+              <span><%= posts[i]["title"] %></span>
+            </figure>
+            </a>
+          </div>
+        <% } %>  
       </div>
       <a href="/post">Create a Post</a>
       <a href="/logout">Logout</a>

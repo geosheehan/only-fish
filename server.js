@@ -3,6 +3,7 @@
 //document, and makes them easy to find
 const express = require('express')
 const app = express()
+const flash = require('express-flash')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
@@ -58,6 +59,8 @@ app.use(
 // Passport middleware - allows us to perform authentication
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use(flash());
 
 //telling our document where to find home routes, auth routes, and todo routes 
 app.use('/', homeRoutes)

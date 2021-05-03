@@ -7,19 +7,19 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 // @desc    Show create post page
 // @route   GET /post
-router.get('/', /*ensureAuth,*/ postController.showCreatePage);
+router.get('/', ensureAuth, postController.showCreatePage);
 
 // @desc    Process post creation
 // @route   GET /post
-router.post('/', /*ensureAuth,*/ postController.createPost);
+router.post('/', ensureAuth, postController.createPost);
 
 // @desc    Show edit post page
 // @route   GET /post/edit/:id
-router.get('/edit/:id', postController.showEditPage);
+router.get('/edit/:id', ensureAuth, postController.showEditPage);
 
 // @desc    Process post edit
 // @route   PUT /post/:id
-router.put('/:id', postController.editPost);
+router.put('/:id', ensureAuth, postController.editPost);
 
 // @desc    View a specific post
 // @route   GET /post/:id
@@ -27,10 +27,10 @@ router.get('/:id', postController.viewPost);
 
 // @desc    Delete a post
 // @route   DELETE /post/:id
-router.delete('/:id', postController.deletePost);
+router.delete('/:id', ensureAuth, postController.deletePost);
 
 // @desc    Like a post
 // @route   PUT /post/:id/like
-router.put('/:id/like', postController.likePost);
+router.put('/:id/like', ensureAuth, postController.likePost);
 
 module.exports = router;

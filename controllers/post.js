@@ -61,17 +61,17 @@ module.exports = {
     },
     likePost: async (req, res) => {
         try {
-            // TODO: Add like system to post
-            // Get the post from Mongo with the given id
-            // Increment/Decrement the number of likes
-            // Update the post
-            console.log('Updating the number of likes');
-            // Redirect to the post page
+            await Post.findOneAndUpdate(
+              { _id: req.params.id },
+              {
+                $inc: { likes: 1 },
+              }
+            );
+            console.log("Likes +1");
             res.redirect(`/post/${req.params.id}`);
-        } catch (err) {
-            console.error(err);
-
-        }
+          } catch (err) {
+            console.log(err);
+          }
     }
 }
 

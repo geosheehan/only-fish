@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/pond.css" rel="stylesheet" type="text/css" />
-    <title>Your Profile Page: AKA "The Pond"</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="img-area">
-        <div class="inner-area">
-          <img
-            src="https://thumbs-prod.si-cdn.com/qXrJJ-l_jMrQbARjnToD0fi-Tsg=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/d6/93/d6939718-4e41-44a8-a8f3-d13648d2bcd0/c3npbx.jpg"
-            alt=""
-          />
-        </div>
+<%- include('partials/header') -%>
+ <link href="css/pond.css" rel="stylesheet" type="text/css" />
+  <title>Your Profile Page: AKA "The Pond"</title>
+ </head> 
+<body>
+   <div class="wrapper">
+    <div class="img-area">
+      <div class="inner-area">
+        <img src="https://thumbs-prod.si-cdn.com/qXrJJ-l_jMrQbARjnToD0fi-Tsg=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/d6/93/d6939718-4e41-44a8-a8f3-d13648d2bcd0/c3npbx.jpg" alt="">
       </div>
 
       <h1><%= user.userName %></h1>
@@ -66,5 +57,6 @@
       <% }); %>
     </div>
     <script src="js/main.js"></script>
-  </body>
-</html>
+
+
+<%- include('partials/footer') -%>

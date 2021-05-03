@@ -25,7 +25,11 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  likes: {
+    type: Number,
+    required: true
+  },
 })
 
 // Password hash middleware.

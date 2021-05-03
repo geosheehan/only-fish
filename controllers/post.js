@@ -7,10 +7,7 @@ module.exports = {
     },
     createPost: async (req, res) => {
         try {
-            // TODO: Do this but with a real MongoDB ObjectId for a user
-
             req.body.user = req.user._id;
-            console.log(req.user);
 
             const post = await Post.create(req.body);
             res.redirect(`/post/${post._id}`);

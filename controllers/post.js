@@ -27,6 +27,7 @@ module.exports = {
             // Pass the post object to the view.
             res.render('posts/view.ejs', { id: req.params.id, post });
         } catch (err) {
+            res.render('errors/404.ejs')
             console.error(err);
         }
     },

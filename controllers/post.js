@@ -8,8 +8,10 @@ module.exports = {
     createPost: async (req, res) => {
         try {
             // TODO: Do this but with a real MongoDB ObjectId for a user
-            // req.body.user = '123'; // req.user.id;
-            req.body.user = '608b634e19cd087e30adbda4';
+
+            req.body.user = req.user._id;
+            console.log(req.user);
+
             const post = await Post.create(req.body);
             res.redirect(`/post/${post._id}`);
         } catch (err) {
@@ -21,11 +23,10 @@ module.exports = {
             // Grab the post from Mongo using the provided id
             const post = await Post.findById(req.params.id);
             // Get additional data on the post author
-            const user = await User.findById(post.user);
+            const author = await User.findById(post.user);
 
-            post.userName = user.displayName;
             // Pass the post object to the view.
-            res.render('posts/view.ejs', { id: req.params.id, post });
+            res.render('posts/view.ejs', { post, author, user: req.user });
         } catch (err) {
             res.render('errors/404.ejs')
             console.error(err);

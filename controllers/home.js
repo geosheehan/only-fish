@@ -21,7 +21,15 @@ module.exports = {
   getLake: async (req, res) => {
     try {
       const publicPost = await Post.find({ status : "public" })
-      res.render('lake.ejs', { posts: publicPost })
+      const ids = publicPost.map(post => {
+        return post.user
+      })
+      const userNameArr = [];
+      for(let i = 0; i < ids.length; i++) {
+        const results = await User.findOne({ _id: ids[i] });
+        userNameArr.push(results.userName);
+      }
+      res.render('lake.ejs', { posts: publicPost, userNameArr })
     } catch (err) {
       console.error(err)
     }

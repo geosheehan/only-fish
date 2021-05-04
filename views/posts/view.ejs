@@ -14,7 +14,7 @@
     <!-- Edit post
       TODO: Only show this form if the viewing user is the author
     -->
-    <%if (user._id.toString() === author._id.toString()) {%>
+    <%if (user && user._id.toString() === author._id.toString()) {%>
     <form action="/post/edit/<%= post._id %>" method="GET">
       <button>Edit</button>
     </form>
@@ -24,7 +24,7 @@
       TODO: Only show this form if the viewing user can delete this post
       i.e. Post author or moderator
     -->
-    <%if (user._id.toString() === author._id.toString()) {%>
+    <%if (user && user._id.toString() === author._id.toString()) {%>
     <form action="/post/<%= post._id %>" method="POST">
       <input type="hidden" name="_method" value="DELETE" />
       <button>Delete</button>

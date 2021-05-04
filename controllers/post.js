@@ -21,7 +21,6 @@ module.exports = {
             const post = await Post.findById(req.params.id);
             // Get additional data on the post author
             const author = await User.findById(post.user);
-
             // Pass the post object to the view.
             res.render('posts/view.ejs', { post, author, user: req.user });
         } catch (err) {

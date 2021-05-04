@@ -25,14 +25,14 @@
       i.e. Post author or moderator
     -->
     <%if (user._id.toString() === author._id.toString()) {%>
-    <form action="/post/<%= author._id %>" method="POST">
+    <form action="/post/<%= post._id %>" method="POST">
       <input type="hidden" name="_method" value="DELETE" />
       <button>Delete</button>
     </form>
     <% } %>
 
     <!-- Like post -->
-    <form action="/post/<%= author._id %>/like" method="POST">
+    <form action="/post/<%= post._id %>/like" method="POST">
       <input type="hidden" name="_method" value="PUT" />
       <button>Like!</button>
     </form>

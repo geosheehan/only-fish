@@ -6,18 +6,19 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
 body{
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #dd4205;
+  background: #4ac9a9;
 }                                                                                                                                    /*position: relative;width: 350px;padding: 30px;border-radius: 10px;display: flex;align-items: center;justify-content: center;flex-direction: column;}wrapper .icon{font-size: 17px;olor: #31344bposition: absolutecursor: pointer*/
 .wrapper,
 .wrapper .img-area,
 .social-icons a,
 .buttons button{
-  background: #f0af83;
+  background: #cae6d5;
   box-shadow: -3px -3px 7px #ffffff,
                3px 3px 5px #ceced1;
 }

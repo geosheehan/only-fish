@@ -32,7 +32,7 @@ module.exports = {
         try {
             // Get post details to fill in page
             const post = await Post.findById(req.params.id);
-            if (req.user.id !== post.user) return res.redirect(`/post/${req.params.id}`);
+            if (req.user.id.toString() !== post.user.toString()) return res.redirect(`/post/${req.params.id}`);
             // Display page with post data
             res.render('posts/edit.ejs', { id: req.params.id, post });
         } catch (err) {
@@ -53,7 +53,7 @@ module.exports = {
     deletePost: async (req, res) => {
         try {
             const post = await Post.findById(req.params.id);
-            if (req.user.id !== post.user) return res.redirect(`/post/${req.params.id}`);
+            if (req.user.id.toString() !== post.user.toString()) return res.redirect(`/post/${req.params.id}`);
 
             console.log(`Deleting Post ${req.params.id}`);
             await Post.deleteOne({ _id: req.params.id });

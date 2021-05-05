@@ -5,10 +5,12 @@
     <h1><%= post.title %></h1>
     <!-- Add formatted content -->
     <%post.body.split('\n').forEach(p => {%>
+    <br>
     <p><%=p%></p>
     <%})%>
 
     <!-- Link to author -->
+   <br>
     <a href="/pond/<%= author.userName %>"><%= author.userName %></a>
 
     <!-- Edit post
@@ -16,6 +18,7 @@
     -->
     <%if (user && user._id.toString() === author._id.toString()) {%>
     <form action="/post/edit/<%= post._id %>" method="GET">
+      <br>
       <button>Edit</button>
     </form>
     <% } %>

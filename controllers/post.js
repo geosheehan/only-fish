@@ -19,6 +19,8 @@ module.exports = {
         try {
             // Grab the post from Mongo using the provided id
             const post = await Post.findById(req.params.id);
+            if (post === null) return res.render('errors/404.ejs');
+
             // Get additional data on the post author
             const author = await User.findById(post.user);
             // Pass the post object to the view.

@@ -1,27 +1,30 @@
 <%- include('../partials/header') -%>
-   <link rel="stylesheet" href="/css/pond.css">
+   <link rel="stylesheet" href="/css/view.css">
   </head>
   <body>
-    <h1><%= post.title %></h1>
     <!-- Add formatted content -->
+   <h1><%= post.title %></h1> 
+      
+    
     <%post.body.split('\n').forEach(p => {%>
-    <br>
     <p><%=p%></p>
     <%})%>
-
+    
     <!-- Link to author -->
-   <br>
-    <a href="/pond/<%= author.userName %>"><%= author.userName %></a>
+  
+   <a href="/pond/<%= author.userName %>"><%= author.userName %></a>
 
     <!-- Edit post
       TODO: Only show this form if the viewing user is the author
     -->
+    
     <%if (user && user._id.toString() === author._id.toString()) {%>
     <form action="/post/edit/<%= post._id %>" method="GET">
-      <br>
+     
       <button>Edit</button>
     </form>
     <% } %>
+  
 
     <!-- Delete post
       TODO: Only show this form if the viewing user can delete this post
@@ -33,11 +36,14 @@
       <button>Delete</button>
     </form>
     <% } %>
+  
 
     <!-- Like post -->
-    <form action="/post/<%= post._id %>/like" method="POST">
+      
+     <button>Like!</button>
+     <form action="/post/<%= post._id %>/like" method="POST">
       <input type="hidden" name="_method" value="PUT" />
-      <button>Like!</button>
+    
     </form>
     <h3><%= post.likes %> </h3> 
     <!-- TODO: Show number of likes on the post -->

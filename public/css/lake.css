@@ -64,12 +64,13 @@
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: in-line block;
+    display: inline-block;
     font-size: 16px;
-    flex: 1
+
   }
 
   .button-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1rem;
     }

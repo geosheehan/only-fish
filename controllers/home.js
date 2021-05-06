@@ -27,6 +27,8 @@ module.exports = {
       const userNameArr = [];
       for(let i = 0; i < ids.length; i++) {
         const results = await User.findOne({ _id: ids[i] });
+
+        if (results === null) continue;
         userNameArr.push(results.userName);
       }
       res.render('lake.ejs', { posts: publicPost, userNameArr })

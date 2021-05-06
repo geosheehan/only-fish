@@ -11,12 +11,12 @@
             <a href="/post/<%= posts[i]._id%>" >
             <figure>
               <!--space holder for image-->
-              <p><%= posts[i]["body"] %></p>
               <span><%= posts[i]["title"] %></span>
+              <p><%= posts[i]["body"] %></p>
             </figure>
             </a>
-            <a href="/pond/<%=userNameArr[i]%>">
-              <%=userNameArr[i]%>
+            <span class="auth">by <a href="/pond/<%=userNameArr[i]%>">
+              <%=userNameArr[i]%></span>
             </a>
           </div>
         <% } %>  

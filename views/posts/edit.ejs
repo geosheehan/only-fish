@@ -1,13 +1,15 @@
 <%- include('../partials/header') -%>
-   <link rel="stylesheet" href="/css/pond.css">
+   <link rel="stylesheet" href="/css/edit.css">
    </head>
+
    <body>
-      <h1>Only Fish Edit Post</h1>
       <form action="/post/<%= id %>" method="POST">
          <!-- Method override to PUT -->
          <input type="hidden" name="_method" value="PUT">
 
          <!-- Title -->
+         <h1>OnlyFish: Edit Your Post</h1>
+
          <label for="title">Title:</label>
          <input type="text" id="title" name="title" value="<%= post.title %>">
 
@@ -16,20 +18,26 @@
          <textarea name="body" id="body" cols="30" rows="10"><%= post.body %></textarea>
 
          <!-- Status -->
+         <label for="status">Status: </label>
          <select name="status" id="status">
             <!-- Select appropriate option -->
-            <%const options = ['public', 'private'];%>
-            <%for (let option of options) {%>
-               <%const selected = post.status === option ? 'selected': '';%>
-               <%const optionCap = option.charAt().toUpperCase() + option.slice(1);%>
-               <option value="<%=option%>" <%=selected%>><%=optionCap%></option>
-            <%}%>
+            <%const options=['public', 'private' ];%>
+               <%for (let option of options) {%>
+                  <%const selected=post.status===option ? 'selected' : '' ;%>
+                     <%const optionCap=option.charAt().toUpperCase() + option.slice(1);%>
+                        <option value="<%=option%>" <%=selected%>><%=optionCap%>
+                        </option>
+                        <%}%>
+                           <!-- error -->
          </select>
-         <label for="status">Status</label>
+
 
          <!-- Buttons -->
-         <input type="submit" value="Submit">
-         <a href="/post/<%= id %>">Cancel</a> <!-- Go back to post -->
+         <div class="button-box">
+            <input class="button" type="submit" value="Submit">
+            <a class="button" href="/post/<%= id %>">Cancel</a> <!-- Go back to post -->
+         </div>
+
       </form>
 
-<%- include('../partials/footer') -%>
+      <%- include('../partials/footer') -%>

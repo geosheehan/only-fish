@@ -4,40 +4,9 @@
  </head> 
 <body>
    <div class="wrapper">
-    <div class="img-area">
-      <div class="inner-area">
-        <img src="https://thumbs-prod.si-cdn.com/qXrJJ-l_jMrQbARjnToD0fi-Tsg=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/d6/93/d6939718-4e41-44a8-a8f3-d13648d2bcd0/c3npbx.jpg" alt="">
-      </div>
-
+    <div class="name">
       <h1><%= user.userName %></h1>
-      <div class="name"><%= user.firstName %> <%= user.lastName%></div>
-      <div class="about">
-        <!-- <i class="fa fa-desktop" aria-hidden="true"></i>
-        CODER,DESIGNER,DEVELOPER, FLOUNDER
-        <br /><i class="fa fa-building" aria-hidden="true"></i> Under the Sea
-        Group -->
-      </div>
-
-      <!-- <div class="buttons">
-        <button>Message</button>
-        <button>Subscribe</button>
-      </div> -->
-      <!-- <div class="social-share">
-        <div class="row">
-          <i class="far fa-heart"></i>
-          <i class="icon-2 fas fa-heart"></i>
-          <span>20.4k</span>
-        </div>
-        <div class="row">
-          <i class="far fa-comment"></i>
-          <i class="icon-2 fas fa-comment"></i>
-          <span>14.3k</span>
-        </div>
-        <div class="row">
-          <i class="fas fa-share"></i>
-          <span>12.8k</span>
-        </div>
-      </div> -->
+      <%= user.firstName %> <%= user.lastName%>
     </div>
     <div class="wrapper wrapper2">
       <!-- <span>User's Profile</span>
@@ -56,6 +25,7 @@
       </div>
       <% }); %>
     </div>
+    <span>Return <a href="/lake">home</a></span>
     <script src="js/main.js"></script>
 
 

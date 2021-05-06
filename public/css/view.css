@@ -1,0 +1,109 @@
+ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #23cacf;
+}                                                                                                                                    /*position: relative;width: 350px;padding: 30px;border-radius: 10px;display: flex;align-items: center;justify-content: center;flex-direction: column;}wrapper .icon{font-size: 17px;olor: #31344bposition: absolutecursor: pointer*/
+
+.buttons button{
+  background: #cae6d5;
+  box-shadow: -3px -3px 7px #ffffff,
+               3px 3px 5px #ceced1;
+}
+.wrapper{
+  position: relative;
+  width: 30%;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.wrapper2{
+  width: 50%;
+  margin: 5rem;
+}                                                                                                                                    /*position: relative;width: 350px;padding: 30px;border-radius: 10px;display: flex;align-items: center;justify-content: center;flex-direction: column;}wrapper .icon{font-size: 17px;olor: #31344bposition: absolutecursor: pointer*/
+
+.wrapper .img-area{                                                                                                                                    /*position: relative;width: 350px;padding: 30px;border-radius: 10px;display: flex;align-items: center;justify-content: center;flex-direction: column;}wrapper .icon{font-size: 17px;olor: #31344bposition: absolutecursor: pointer*/
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-area .inner-area{
+  height: calc(100% - 25px);
+  width: calc(100% - 25px);
+  border-radius: 50%;
+}
+.inner-area img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+                                                                                                                             /*position: relative;width: 350px;padding: 30px;border-radius: 10px;display: flex;align-items: center;justify-content: center;flex-direction: column;}wrapper .icon{font-size: 17px;olor: #31344bposition: absolutecursor: pointer*/
+
+.buttons button:hover:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  background: #ecf0f3;
+  box-shadow: inset -3px -3px 7px #ffffff,
+              inset 3px 3px 5px #ceced1;
+}
+.buttons button:hover:before{
+  z-index: -1;
+  border-radius: 5px;
+}
+.wrapper .buttons{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.buttons button{
+  position: relative;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 19px 6px;
+  color: #31344b;                                                                                                                                    /*position: relative;width: 350px;padding: 30px;border-radius: 10px;display: flex;align-items: center;justify-content: center;flex-direction: column;}wrapper .icon{font-size: 17px;olor: #31344bposition: absolutecursor: pointer*/
+  font-size: 19px;
+  font-weight: 400;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 4;
+}
+.buttons button:first-child{
+  margin-right: 10px;
+}
+.buttons button:last-child{
+  margin-left: 10px;
+}
+                                                                                                                                /*position: relative;width: 350px;padding: 30px;border-radius: 10px;display: flex;align-items: center;justify-content: center;flex-direction: column;}wrapper .icon{font-size: 17px;olor: #31344bposition: absolutecursor: pointer*/
+                                                                                                                                  /*position: relative;width: 350px;padding: 30px;border-radius: 10px;display: flex;align-items: center;justify-content: center;flex-direction: column;}wrapper .icon{font-size: 17px;olor: #31344bposition: absolutecursor: pointer*/
+.row:nth-child(1):hover i.fa-heart,
+.row:nth-child(2):hover i.fa-comment{
+  opacity: 1;
+  pointer-events: auto;
+  
+}
+
+      

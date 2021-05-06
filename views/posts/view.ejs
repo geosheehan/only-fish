@@ -1,55 +1,59 @@
 <%- include('../partials/header') -%>
-   <link rel="stylesheet" href="/css/view.css">
+  <link rel="stylesheet" href="/css/view.css">
   </head>
+
   <body>
     <!-- Add formatted content -->
-  <div class="wrapper">
-    <h1><%= post.title %>:</h1> 
-      
 
-    <%post.body.split('\n').forEach(p => {%>
-    <p><%=p%></p>
-    <%})%>
+    <!-- Title -->
+    <h1>
+      <%= post.title %>:
+    </h1>
+
+    <!-- Body -->
+    <textarea disabled name="body" id="body" cols="30" rows="10"><%= post.body %></textarea>
+
+    <!-- <%#post.body.split('\n').forEach(p=> {#%>
+      <p>
+        <%#=p#%>
+      </p>
+      <%#})#%> -->
+    <!-- Link to author -->
+
+    <p><strong>Post author : <a href="/pond/<%= author.userName %>"></strong>
+      <%= author.userName %></a>
+    </p>
+
+    <div>
+      <!-- Edit post -->
+      <%if (user && user._id.toString()===author._id.toString()) {%>
+        <form action="/post/edit/<%= post._id %>" method="GET">
+          <button class="button">Edit</button>
+        </form>
+        <% } %>
+
+          <!-- Delete post -->
+          <%if (user && user._id.toString()===author._id.toString()) {%>
+            <form action="/post/<%= post._id %>" method="POST">
+              <input type="hidden" name="_method" value="DELETE" />
+              <button class="button">Delete</button>
+            </form>
+            <% } %>
     </div>
-    <!-- Link to author --> 
-  
-   <p><strong>Post author :  <a href="/pond/<%= author.userName %>"></strong><%= author.userName %></a> </p>
- 
-    <!-- Edit post
-      TODO: Only show this form if the viewing user is the author
-    -->
-    
-    <%if (user && user._id.toString() === author._id.toString()) {%>
-    <form action="/post/edit/<%= post._id %>" method="GET">
-     
-      <button class="button">Edit</button>
-    </form>
-    <% } %>
-  
 
-    <!-- Delete post
-      TODO: Only show this form if the viewing user can delete this post
-      i.e. Post author or moderator
-    -->
-    <%if (user && user._id.toString() === author._id.toString()) {%>
-    <form action="/post/<%= post._id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE" />
-      <button class="button">Delete</button>
-    </form>
-    <% } %>
-  
+    <div>
+      <!-- Like post -->
+      <form action="/post/<%= post._id %>/like" method="POST">
+        <input type="hidden" name="_method" value="PUT" />
+        <button class="button">Like!</button>
+      </form>
+    </div>
 
-    <!-- Like post -->
-      
-    <form action="/post/<%= post._id %>/like" method="POST">
-      <input type="hidden" name="_method" value="PUT" />
-      <button class="button">Like!</button>
-    
-    </form>
-    <p><strong>Number of likes:</strong> <%= post.likes %> </p> 
-    <!-- TODO: Show number of likes on the post -->
+    <p><strong>Number of likes:</strong>
+      <%= post.likes %>
+    </p>
 
     <a href="/lake" class="homeButton"> HOME </a>
 
 
-<%- include('../partials/footer') -%>
+    <%- include('../partials/footer') -%>

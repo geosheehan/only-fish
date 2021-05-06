@@ -5,8 +5,8 @@
 <body>
    <div class="wrapper">
     <div class="name">
-      <h1><%= user.userName %></h1>
-      <%= user.firstName %> <%= user.lastName%>
+      <h1><%= author.userName %></h1>
+      <%= author.firstName %> <%= author.lastName%>
     </div>
     <div class="wrapper wrapper2">
       <!-- <span>User's Profile</span>
@@ -14,16 +14,23 @@
       <p>THIS COULD BE A POST</p>
       <p>LALALALA</p>
       <p>ETC ETC ETC</p> -->
-      <h2><%= user.userName %>'s Posts</h2>
+      <h2><%= author.userName %>'s Posts</h2>
+      <%if (!user || user.userName !== author.userName) {
+        posts = posts.filter(post => post.status === 'public');
+      }%>
+      <div class="flex">
       <% posts.forEach( (post) => { %>
-      <div class="item">
-        <h3><%= post.title %></h3>
-        <%post.body.split('\n').forEach(p => {%>
-        <p><%= p %></p>
-        <%})%>
-        <span>Likes: <%= post.likes %></span>
-      </div>
+        <div class="item">
+          <a href="/post/<%= post._id%>">
+            <h3><%= post.title %></h3>
+            <%post.body.split('\n').forEach(p => {%>
+            <p><%= p %></p>
+            <%})%>
+            <span>Likes: <%= post.likes %></span>
+          </a>
+        </div>
       <% }); %>
+      </div>
     </div>
     <span>Return <a href="/lake">home</a></span>
     <script src="js/main.js"></script>

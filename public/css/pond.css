@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 body {
   display: flex;
@@ -111,7 +111,7 @@ body {
 .social-icons a:hover::before,
 .wrapper .icon:hover::before,
 .buttons button:hover:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -184,7 +184,7 @@ body {
 }
 .social-share .row::before {
   position: absolute;
-  content: '';
+  content: "";
   height: 100%;
   width: 2px;
   background: #e0e6eb;
@@ -207,4 +207,10 @@ body {
 .row:nth-child(2):hover i.fa-comment {
   opacity: 1;
   pointer-events: auto;
+}
+
+.flex {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
 }

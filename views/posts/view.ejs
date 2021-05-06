@@ -3,17 +3,18 @@
   </head>
   <body>
     <!-- Add formatted content -->
-   <h1><%= post.title %></h1> 
+  <div class="wrapper">
+    <h1><%= post.title %>:</h1> 
       
-    
+
     <%post.body.split('\n').forEach(p => {%>
     <p><%=p%></p>
     <%})%>
-    
+    </div>
     <!-- Link to author --> 
   
-   <a href="/pond/<%= author.userName %>"><%= author.userName %></a>
-
+   <p><strong>Post author :  <a href="/pond/<%= author.userName %>"></strong><%= author.userName %></a> </p>
+ 
     <!-- Edit post
       TODO: Only show this form if the viewing user is the author
     -->
@@ -21,7 +22,7 @@
     <%if (user && user._id.toString() === author._id.toString()) {%>
     <form action="/post/edit/<%= post._id %>" method="GET">
      
-      <button>Edit</button>
+      <button class="button">Edit</button>
     </form>
     <% } %>
   
@@ -33,19 +34,19 @@
     <%if (user && user._id.toString() === author._id.toString()) {%>
     <form action="/post/<%= post._id %>" method="POST">
       <input type="hidden" name="_method" value="DELETE" />
-      <button>Delete</button>
+      <button class="button">Delete</button>
     </form>
     <% } %>
   
 
     <!-- Like post -->
       
-     <button>Like!</button>
-     <form action="/post/<%= post._id %>/like" method="POST">
+    <form action="/post/<%= post._id %>/like" method="POST">
       <input type="hidden" name="_method" value="PUT" />
+      <button class="button">Like!</button>
     
     </form>
-    <h3><%= post.likes %> </h3> 
+    <p><strong>Number of likes:</strong> <%= post.likes %> </p> 
     <!-- TODO: Show number of likes on the post -->
 
     <a href="/lake" class="homeButton"> HOME </a>

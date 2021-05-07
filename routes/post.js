@@ -11,7 +11,7 @@ router.get('/', ensureAuth, postController.showCreatePage);
 
 // @desc    Process post creation
 // @route   GET /post
-router.post('/', ensureAuth, postController.createPost);
+router.post('/', ensureAuth, upload.single("file"), postController.createPost);
 
 // @desc    Show edit post page
 // @route   GET /post/edit/:id

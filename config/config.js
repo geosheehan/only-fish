@@ -9,7 +9,7 @@ exports.creds = {
   
     responseMode: 'form_post', 
   
-    redirectUrl: 'https://flannelmouth-todo.topherjohnson.repl.co/openid/return', 
+    redirectUrl: 'https://localhost:2121/openid/return',
   
     allowHttpForRedirectUrl: true,
   
@@ -37,7 +37,7 @@ exports.creds = {
     clockSkew: null,
   };
   
-  exports.destroySessionUrl = 'https://flannelmouth-todo.topherjohnson.repl.co';
+  exports.destroySessionUrl = 'https://localhost:2121';
   
   exports.useMongoDBSessionStore = false;
   

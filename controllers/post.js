@@ -1,3 +1,4 @@
+const cloudinary = require("../middleware/cloudinary");
 const Post = require('../models/Post');
 const User = require('../models/User');
 
@@ -56,7 +57,7 @@ module.exports = {
         try {
             const post = await Post.findById(req.params.id);
             if (req.user.id.toString() !== post.user.toString()) return res.redirect(`/post/${req.params.id}`);
-
+            await cloudinary.uploader.destroy(post.cloudinaryId);
             console.log(`Deleting Post ${req.params.id}`);
             await Post.deleteOne({ _id: req.params.id });
             res.redirect('/lake');

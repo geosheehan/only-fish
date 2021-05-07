@@ -11,8 +11,7 @@
             <a href="/post/<%= posts[i]._id%>" >
             <figure>
               <!--space holder for image-->
-              <span><%= posts[i]["title"] %></span>
-              <p><%= posts[i]["body"] %></p>
+              <img class="img-fluid" src="<%= posts[i].image%>">
             </figure>
             </a>
             <span class="auth">by <a href="/pond/<%=userNameArr[i]%>">

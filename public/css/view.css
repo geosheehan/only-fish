@@ -1,14 +1,12 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-
-body{
+body {
   display: flex;
   flex-flow: column wrap;
   justify-content: space-around;
@@ -20,11 +18,11 @@ body{
 
 form {
   display: inline-block;
-  padding-top:2rem;
+  padding-top: 2rem;
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4caf50; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -32,7 +30,6 @@ form {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-
 }
 
 .button-box {
@@ -40,4 +37,24 @@ form {
   justify-content: center;
   gap: 1rem;
   padding-top: 3rem;
+}
+
+img {
+  max-width: 70vw;
+  max-height: 70vh;
+  width: 100%;
+  height: auto;
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+textarea:disabled {
+  color: black;
+  background: #ffffff80;
+  border: none;
 }

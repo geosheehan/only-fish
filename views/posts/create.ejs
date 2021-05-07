@@ -4,7 +4,7 @@
    </head>
 
    <body>
-      <form action="/post" method="POST">
+      <form action="/post" enctype="multipart/form-data" method="POST">
          <h1>OnlyFish: Create A Post</h1>
 
          <!-- Title -->
@@ -17,8 +17,8 @@
          <textarea name="body" id="body" cols="30" rows="10"></textarea>
 
          <!-- Image -->
-         <label for="imgUpload" class="form-label">Image</label>
-         <input type="file" class="form-control" id="imageUpload" name="file">
+         <label for="file" class="form-label">Image</label>
+         <input type="file" class="form-control" id="file" name="file">
 
          <!-- Status -->
          <label for="status">Status:</label>

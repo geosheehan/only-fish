@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const upload = require("../middleware/multer");
 const postController = require('../controllers/post')
-// requires that the user is logged in/authorized 
+// requires that the user is logged in/authorized
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 // @desc    Show create post page
@@ -10,7 +10,7 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth')
 router.get('/', ensureAuth, postController.showCreatePage);
 
 // @desc    Process post creation
-// @route   GET /post
+// @route   POST /post
 router.post('/', ensureAuth, upload.single("file"), postController.createPost);
 
 // @desc    Show edit post page

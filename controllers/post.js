@@ -8,9 +8,15 @@ module.exports = {
     },
     createPost: async (req, res) => {
         try {
-            req.body.user = req.user._id;
-
-            const post = await Post.create(req.body);
+            const result = await cloudinary.uploader.upload(req.file.path);
+            const post = await Post.create({
+                title: req.body.title,
+                image: result.secure_url,
+                cloudinaryId: result.public_id,
+                body: req.body.body,
+                status: req.body.status,
+                user: req.user._id,
+            });
             res.redirect(`/post/${post._id}`);
         } catch (err) {
             console.error(err);
